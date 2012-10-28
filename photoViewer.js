@@ -3,6 +3,12 @@ var photosArrayGlobal;  // the array of photos to be displayed
 var photoIndexGlobal;   // the index into photosArrayGlobal of the current image beig displayed
 
 
+//Receives the string representing the file path for the photo to be displayed & updates the <img> source to that path
+function displayPhoto(photo) {
+	document.getElementById('mainImage').src = photo;
+}
+
+displayPhoto("images/leaf2.jpg"); //debugging
 
 // This function creates the file names for all photos specified by the user, using
 // the current values for "folder", "base file name" and "number of photos".

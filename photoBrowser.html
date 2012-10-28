@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+    <head> 
+        <meta charset="UTF-8" /> 
+		<title>Photo Browser</title>
+		<link rel="stylesheet" href="photoBrowserStyle.css" /> 
+
+    </head>	
+    <body>
+		<div id="instructionsDiv">
+			
+			<p><b>Instructions:</b> This application loads photos from a <i>specified folder</i> using the <i>base file name</i> and a simple numbering system that <i>starts at zero</i>.
+			It only displays photo files that end in *.jpg. For example, if you specify a folder name of "images", a base file name of "leaf", and the number of photos to browse as "3",
+			the application	will load three files to browse: "images/leaf0.jpg", "images/leaf1.jpg", and "images/leaf2.jpg".</p>
+		
+		</div>
+		
+		<div id="setupDiv">
+			
+			Folder: <input type="text" id="folderName" value="images"/> <br />
+						Base for file names: <input type="text" id="baseName" value="leaf" /> <br />
+			
+			Number of photos: <input type="text" id="numPhotos" value="1" /> <br />
+			
+			<button id="loadPhotosButton">Load Photos</button>
+			
+			<p id="errorLabel"></p>
+			
+		</div>
+		
+		<div id="imageDisplayDiv">
+			
+			<img id="mainImage" src="images/initialImage.jpg" border=1 src=""/> <br />
+			
+			<p id="imageLabel">Photo file name goes here</p>
+			
+			<button id="previousButton">Previous</button>
+			<button id="nextButton">Next</button>
+			
+		</div>
+
+        <script src="photoViewer.js"></script>        
+    </body>
+</html>

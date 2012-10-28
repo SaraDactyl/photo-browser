@@ -1,6 +1,6 @@
 // Global variables
 var photosArrayGlobal;  // the array of photos to be displayed
-var photoIndexGlobal;   // the index into photosArrayGlobal of the current image beig displayed
+var photoIndexGlobal;   // the index into photosArrayGlobal of the current image being displayed
 
 
 //Receives the string representing the file path for the photo to be displayed & updates the <img> source to that path
@@ -17,17 +17,21 @@ function displayPhoto(photo) {
 function onLoadPhotosButtonClick() {
     alert("onLoadPhotosButtonClick function says hello");
     
-    var fileName = document.getElementById('folderName').value + '/' + document.getElementById('baseName').value +
-    document.getElementById('numPhotos').value + '.jpg';
+    var folderName = document.getElementById('folderName').value; //because I'm really sick of writing 'document.getElementById
+    var baseName = document.getElementById('baseName').value;
+    var numPhotos = document.getElementById('numPhotos').value;
     
-    console.log(fileName); //debugging
+    //var fileName = folderName + '/' + baseName + numPhotos + '.jpg'; WHAT
+    
+    //console.log(fileName); //debugging
 
 	//checks that the user entered a valid number of photos.
 	if (document.getElementById('numPhotos').value < 0) {
 		alert('Invalid number.') //if number is less than zero, alerts the user.
 	} else {
 		photosArrayGlobal = []; //sets photo global variable to an empty array
-		for(var i = 0; i < document.getElementById('numPhotos'); i++) {
+	for(var i = 0; i < numPhotos; i++) {
+		
 			
 		
 }

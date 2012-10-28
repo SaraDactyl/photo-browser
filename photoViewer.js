@@ -15,9 +15,9 @@ function displayPhoto(photo) {
 // the current values for "folder", "base file name" and "number of photos".
 // Stores these file names in the global array.
 function onLoadPhotosButtonClick() {
-    alert("onLoadPhotosButtonClick function says hello");
+    alert('onLoadPhotosButtonClick function says hello');
     
-    var folderName = document.getElementById('folderName').value; //because I'm really sick of writing 'document.getElementById
+    var folderName = document.getElementById('folderName').value; //because I'm really sick of writing 'document.getElementById'
     var baseName = document.getElementById('baseName').value;
     var numPhotos = document.getElementById('numPhotos').value;
     
@@ -30,16 +30,22 @@ function onLoadPhotosButtonClick() {
 		alert('Invalid number.') //if number is less than zero, alerts the user.
 	} else {
 		photosArrayGlobal = []; //sets photo global variable to an empty array
-	for(var i = 0; i < numPhotos; i++) {
-		
-			
-		
+		for(var i = 0; i < numPhotos; i++) {
+			var fileName = 
+		}
+		//Initialize photoIndexGlobal to 0(the first array entry)
+		//calls displayPhoto to show the first photo in the array
+		displayPhoto();
+
 }
 
 // This initialization function is only used to set up some of the click handling functionality
 function init() {
     // When the user clicks the loadPhotosButton, the "loadPhotos" function will be called
-    document.getElementById("loadPhotosButton").onclick = onLoadPhotosButtonClick;
+    document.getElementById('loadPhotosButton').onclick = onLoadPhotosButtonClick;
+    document.getElementById('nextButton').onclick = onNextButtonClick;
+    document.getElementById('previousButton').onclick = onPreviousButtonClick;
+    document.getElementById('mainImage').onclick = onImageClick;
     
     // Once you create functions to be called when other elements are clicked (e.g., the
     // previous button, next button, image), you should assign the function names to the

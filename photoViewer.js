@@ -8,13 +8,28 @@ function displayPhoto(photo) {
 	document.getElementById('mainImage').src = photo;
 }
 
-displayPhoto("images/leaf2.jpg"); //debugging
+//displayPhoto("images/leaf2.jpg");
+//debugging
 
 // This function creates the file names for all photos specified by the user, using
 // the current values for "folder", "base file name" and "number of photos".
 // Stores these file names in the global array.
 function onLoadPhotosButtonClick() {
     alert("onLoadPhotosButtonClick function says hello");
+    
+    var fileName = document.getElementById('folderName').value + '/' + document.getElementById('baseName').value +
+    document.getElementById('numPhotos').value + '.jpg';
+    
+    console.log(fileName); //debugging
+
+	//checks that the user entered a valid number of photos.
+	if (document.getElementById('numPhotos').value < 0) {
+		alert('Invalid number.') //if number is less than zero, alerts the user.
+	} else {
+		photosArrayGlobal = []; //sets photo global variable to an empty array
+		for(var i = 0; i < document.getElementById('numPhotos'); i++) {
+			
+		
 }
 
 // This initialization function is only used to set up some of the click handling functionality

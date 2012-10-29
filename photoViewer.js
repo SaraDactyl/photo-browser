@@ -27,7 +27,7 @@ function onLoadPhotosButtonClick() {
     var numPhotos = document.getElementById('numPhotos').value;
 
 	//checks that the user entered a valid number of photos.
-	if (document.getElementById('numPhotos').value < 0) {
+	if (document.getElementById('numPhotos').value <= 0) {
 		alert('Invalid number.') //if number is less than zero, alerts the user.
 	} else {
 		photosArrayGlobal = []; //sets photo global variable to an empty array
@@ -38,6 +38,7 @@ function onLoadPhotosButtonClick() {
 	}
 	//Initialize photoIndexGlobal to 0(the first array entry)
 	photoIndexGlobal = photosArrayGlobal[0];
+	console.log(photoIndexGlobal); //debugging
 	
 	//calls displayPhoto to show the first photo in the array
 	displayPhoto(folderName + '/' + baseName + '0.jpg');
@@ -48,38 +49,35 @@ function onLoadPhotosButtonClick() {
 
 //displays next photo in photosArrayGlobal
 function onNextButtonClick() {
-	var folderName = document.getElementById('folderName').value;
-    var baseName = document.getElementById('baseName').value;
+	var i = photosArrayGlobal.indexOf(photoIndexGlobal) + 1; //set i to the index of photoInderGlobal
 
-	var i = photosArrayGlobal.indexOf(photoIndexGlobal); //set i to the index of photoInderGlobal
-	
 	if(i < photosArrayGlobal.length) {
-		photoIndexGlobal = photosArrayGlobal[i+1];
-		console.log(photoIndexGlobal);
-		displayPhoto(photoIndexGlobal);
-		displayText(photoIndexGlobal);
+		photoIndexGlobal = photosArrayGlobal[i];
 	} else {
-		displayPhoto(folderName + '/' + baseName + '0.jpg');
+		photoIndexGlobal = photosArrayGlobal[0];
 	}
+
+	console.log(photoIndexGlobal);
+	displayPhoto(photoIndexGlobal);
+	displayText(photoIndexGlobal);
 }
 
 
 function onPreviousButtonClick() {
-	var folderName = document.getElementById('folderName').value;
-    var baseName = document.getElementById('baseName').value;
-	
-	
-	var i = photosArrayGlobal.indexOf(photoIndexGlobal);
-	
-	if(i < photosArrayGlobal.length) {
-		photoIndexGlobal = photosArrayGlobal[i-1];
-		displayPhoto(photoIndexGlobal);
-		displayText(photoIndexGlobal);
+	var i = photosArrayGlobal.indexOf(photoIndexGlobal) - 1;
+	var l = photosArrayGlobal.length;
+
+	if(i < l) {
+		photoIndexGlobal = photosArrayGlobal[i];
 	} else {
-		displayPhoto(photosArrayGlobal[photosArrayGlobal.length]);
-		displayText(photosArrayGlobal[photosArrayGlobal.length]);
+		photoIndexGlobal = photosArrayGlobal[l];
 	}
+
+	console.log(photoIndexGlobal);
+	displayPhoto(photoIndexGlobal);
+	displayText(photoIndexGlobal);
 }
+	
 
 // This initialization function is only used to set up some of the click handling functionality
 function init() {

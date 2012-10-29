@@ -49,11 +49,18 @@ function onLoadPhotosButtonClick() {
 //displays next photo in photosArrayGlobal
 function onNextButtonClick() {
 	for(var i = 0; i < photosArrayGlobal.length; i++) {
-		displayPhoto(photosArrayGlobal[i+1]);
-		displayText(photosArrayGlobal[i+1]);
-		break;
+		
+		if(photosArrayGlobal[i] === photosArrayGlobal.length) {
+			displayPhoto(folderName + '/' + baseName + '0.jpg');
+		} else {
+			photoIndexGlobal = photosArrayGlobal[i+1];
+			displayPhoto(photoIndexGlobal);
+			displayText(photoIndexGlobal);
+			break;
+		}
 	}
 }
+
 
 function onPreviousButtonClick() {
 	

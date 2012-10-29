@@ -48,7 +48,11 @@ function onLoadPhotosButtonClick() {
 
 //displays next photo in photosArrayGlobal
 function onNextButtonClick() {
-	
+	for(var i = 0; i < photosArrayGlobal.length; i++) {
+		displayPhoto(photosArrayGlobal[i+1]);
+		displayText(photosArrayGlobal[i+1]);
+		break;
+	}
 }
 
 function onPreviousButtonClick() {

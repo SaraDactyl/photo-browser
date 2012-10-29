@@ -49,7 +49,7 @@ function onLoadPhotosButtonClick() {
 
 //displays next photo in photosArrayGlobal
 function onNextButtonClick() {
-	var i = photosArrayGlobal.indexOf(photoIndexGlobal) + 1; //set i to the index of photoInderGlobal
+	var i = photosArrayGlobal.indexOf(photoIndexGlobal) + 1; //set i to the index of photoIndexGlobal
 
 	if(i < photosArrayGlobal.length) {
 		photoIndexGlobal = photosArrayGlobal[i];
@@ -65,9 +65,9 @@ function onNextButtonClick() {
 
 function onPreviousButtonClick() {
 	var i = photosArrayGlobal.indexOf(photoIndexGlobal) - 1;
-	var l = photosArrayGlobal.length;
-
-	if(i < l) {
+	var l = photosArrayGlobal.length - 1;
+	
+	if(i >= 0) {
 		photoIndexGlobal = photosArrayGlobal[i];
 	} else {
 		photoIndexGlobal = photosArrayGlobal[l];

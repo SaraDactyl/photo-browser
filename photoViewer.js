@@ -50,20 +50,16 @@ function onLoadPhotosButtonClick() {
 function onNextButtonClick() {
 	var folderName = document.getElementById('folderName').value;
     var baseName = document.getElementById('baseName').value;
+
+	var i = photosArrayGlobal.indexOf(photoIndexGlobal); //set i to the index of photoInderGlobal
 	
-	for(var i = 0; i < photosArrayGlobal.length; i++) {
-		var i = photosArrayGlobal.indexOf(photoIndexGlobal);
-		
-		if(i < photosArrayGlobal.length) {
-			photoIndexGlobal = photosArrayGlobal[i+1];
-			displayPhoto(photoIndexGlobal);
-			displayText(photoIndexGlobal);
-			break;
-		} else {
-			displayPhoto(photosArrayGlobal[0]);
-			displayText(photosArrayGlobal[0]);
-			break;
-		}
+	if(i < photosArrayGlobal.length) {
+		photoIndexGlobal = photosArrayGlobal[i+1];
+		console.log(photoIndexGlobal);
+		displayPhoto(photoIndexGlobal);
+		displayText(photoIndexGlobal);
+	} else {
+		displayPhoto(folderName + '/' + baseName + '0.jpg');
 	}
 }
 
@@ -72,21 +68,17 @@ function onPreviousButtonClick() {
 	var folderName = document.getElementById('folderName').value;
     var baseName = document.getElementById('baseName').value;
 	
-	for(var i = 0; i < photosArrayGlobal.length; i++) {
-		var i = photosArrayGlobal.indexOf(photoIndexGlobal);
-		
-		if(i < photosArrayGlobal.length) {
-			photoIndexGlobal = photosArrayGlobal[i-1];
-			displayPhoto(photoIndexGlobal);
-			displayText(photoIndexGlobal);
-			break;
-		} else {
-			displayPhoto(photosArrayGlobal[photosArrayGlobal.length]);
-			displayText(photosArrayGlobal[photosArrayGlobal.length]);
-			break;
-		}
-	}
 	
+	var i = photosArrayGlobal.indexOf(photoIndexGlobal);
+	
+	if(i < photosArrayGlobal.length) {
+		photoIndexGlobal = photosArrayGlobal[i-1];
+		displayPhoto(photoIndexGlobal);
+		displayText(photoIndexGlobal);
+	} else {
+		displayPhoto(photosArrayGlobal[photosArrayGlobal.length]);
+		displayText(photosArrayGlobal[photosArrayGlobal.length]);
+	}
 }
 
 // This initialization function is only used to set up some of the click handling functionality

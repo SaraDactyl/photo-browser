@@ -8,6 +8,11 @@ function displayPhoto(photo) {
 	document.getElementById('mainImage').src = photo;
 }
 
+//function for changing the text displayed under the photo
+function displayText(text) {
+	document.getElementById('imageLabel').innerHTML = text;
+}
+	
 //displayPhoto("images/leaf2.jpg");
 //debugging
 
@@ -33,13 +38,22 @@ function onLoadPhotosButtonClick() {
 	}
 	//Initialize photoIndexGlobal to 0(the first array entry)
 	photoIndexGlobal = photosArrayGlobal[0];
+	
 	//calls displayPhoto to show the first photo in the array
 	displayPhoto(folderName + '/' + baseName + '0.jpg');
+	
+	//displays file name of current image being displayed
+	displayText(photoIndexGlobal);
 }
 
-function onNextButtonClick() {}
-function onPreviousButtonClick() {}
-function onImageClick() {}
+//displays next photo in photosArrayGlobal
+function onNextButtonClick() {
+	
+}
+
+function onPreviousButtonClick() {
+	
+}
 
 // This initialization function is only used to set up some of the click handling functionality
 function init() {
@@ -47,7 +61,7 @@ function init() {
     document.getElementById('loadPhotosButton').onclick = onLoadPhotosButtonClick;
     document.getElementById('nextButton').onclick = onNextButtonClick;
     document.getElementById('previousButton').onclick = onPreviousButtonClick;
-    document.getElementById('mainImage').onclick = onImageClick;
+    document.getElementById('mainImage').onclick = onNextButtonClick;
     
     // Once you create functions to be called when other elements are clicked (e.g., the
     // previous button, next button, image), you should assign the function names to the

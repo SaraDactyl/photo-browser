@@ -48,14 +48,20 @@ function onLoadPhotosButtonClick() {
 
 //displays next photo in photosArrayGlobal
 function onNextButtonClick() {
+	var folderName = document.getElementById('folderName').value;
+    var baseName = document.getElementById('baseName').value;
+	
 	for(var i = 0; i < photosArrayGlobal.length; i++) {
+		var i = photosArrayGlobal.indexOf(photoIndexGlobal);
 		
-		if(photosArrayGlobal[i] === photosArrayGlobal.length) {
-			displayPhoto(folderName + '/' + baseName + '0.jpg');
-		} else {
+		if(i < photosArrayGlobal.length) {
 			photoIndexGlobal = photosArrayGlobal[i+1];
 			displayPhoto(photoIndexGlobal);
 			displayText(photoIndexGlobal);
+			break;
+		} else {
+			displayPhoto(photosArrayGlobal[0]);
+			displayText(photosArrayGlobal[0]);
 			break;
 		}
 	}
@@ -63,6 +69,23 @@ function onNextButtonClick() {
 
 
 function onPreviousButtonClick() {
+	var folderName = document.getElementById('folderName').value;
+    var baseName = document.getElementById('baseName').value;
+	
+	for(var i = 0; i < photosArrayGlobal.length; i++) {
+		var i = photosArrayGlobal.indexOf(photoIndexGlobal);
+		
+		if(i < photosArrayGlobal.length) {
+			photoIndexGlobal = photosArrayGlobal[i-1];
+			displayPhoto(photoIndexGlobal);
+			displayText(photoIndexGlobal);
+			break;
+		} else {
+			displayPhoto(photosArrayGlobal[photosArrayGlobal.length]);
+			displayText(photosArrayGlobal[photosArrayGlobal.length]);
+			break;
+		}
+	}
 	
 }
 

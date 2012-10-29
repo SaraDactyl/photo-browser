@@ -15,15 +15,11 @@ function displayPhoto(photo) {
 // the current values for "folder", "base file name" and "number of photos".
 // Stores these file names in the global array.
 function onLoadPhotosButtonClick() {
-    alert('onLoadPhotosButtonClick function says hello');
+    //alert('onLoadPhotosButtonClick function says hello'); debugging
     
     var folderName = document.getElementById('folderName').value; //because I'm really sick of writing 'document.getElementById'
     var baseName = document.getElementById('baseName').value;
     var numPhotos = document.getElementById('numPhotos').value;
-    
-    //var fileName = folderName + '/' + baseName + numPhotos + '.jpg'; WHAT
-    
-    //console.log(fileName); //debugging
 
 	//checks that the user entered a valid number of photos.
 	if (document.getElementById('numPhotos').value < 0) {
@@ -31,13 +27,19 @@ function onLoadPhotosButtonClick() {
 	} else {
 		photosArrayGlobal = []; //sets photo global variable to an empty array
 		for(var i = 0; i < numPhotos; i++) {
-			var fileName = 
+			photosArrayGlobal.push(folderName + '/' + baseName + i + '.jpg') //adds appropriate image strings to array
 		}
-		//Initialize photoIndexGlobal to 0(the first array entry)
-		//calls displayPhoto to show the first photo in the array
-		displayPhoto();
-
+		console.log(photosArrayGlobal); //debugging
+	}
+	//Initialize photoIndexGlobal to 0(the first array entry)
+	photoIndexGlobal = photosArrayGlobal[0];
+	//calls displayPhoto to show the first photo in the array
+	displayPhoto(folderName + '/' + baseName + '0.jpg');
 }
+
+function onNextButtonClick() {}
+function onPreviousButtonClick() {}
+function onImageClick() {}
 
 // This initialization function is only used to set up some of the click handling functionality
 function init() {
